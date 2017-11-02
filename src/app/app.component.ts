@@ -1,9 +1,18 @@
 import { Component } from '@angular/core';
+import { Hero } from "./hero";
 
-export class Hero {
-  id: number;
-  name: string;
-}
+const HEROES: Hero[] = [
+{id: 11, name: 'Bob'},
+{id: 12, name: 'John'},
+{id: 13, name: 'Mary'},
+{id: 14, name: 'Jim'},
+{id: 15, name: 'Will'},
+{id: 16, name: 'Tom'},
+{id: 17, name: 'Tim'},
+{id: 18, name: 'Bill'},
+{id: 19, name: 'Bobert'},
+{id: 20, name: 'Rob'}
+]
 
 @Component({
   selector: 'app-root',
@@ -13,8 +22,10 @@ export class Hero {
 
 export class AppComponent {
   title = 'bobs uncles app';
-  hero: Hero = {
-    id: 1,
-    name: 'bob'
-  };
+  heroes = HEROES;
+  selectedHero: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
